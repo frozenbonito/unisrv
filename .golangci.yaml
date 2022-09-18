@@ -1,0 +1,37 @@
+linters:
+  enable:
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - gofumpt
+    - goimports
+    - gomnd
+    - gosec
+    - lll
+    - nolintlint
+    - revive
+    - stylecheck
+    - wrapcheck
+
+linters-settings:
+  gofumpt:
+    extra-rules: true
+    lang-version: "1.18"
+  goimports:
+    local-prefixes: github.com/frozenbonito/unisrv
+  gosimple:
+    go: "1.18"
+  staticcheck:
+    go: "1.18"
+  stylecheck:
+    go: "1.18"
+    checks:
+      - all
+
+issues:
+  include:
+    - EXC0012
+    - EXC0013
+    - EXC0014
+  max-issues-per-linter: 0
+  max-same-issues: 0

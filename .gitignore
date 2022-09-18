@@ -1,0 +1,6 @@
+# binary
+cmd/unisrv/unisrv
+cmd/unisrv/unisrv.exe
+
+# goreleaser
+dist/

@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: "1.19"
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.49.0
+  test:
+    name: Test
+    strategy:
+      matrix:
+        go-version:
+          - "1.19"
+          - "1.18"
+        platform:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Install gotestsum
+        run: go install gotest.tools/gotestsum@latest
+      - name: Run gotestsum
+        run: |
+          go clean -testcache
+          gotestsum ./... -- --race
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: "1.19"
+      - name: Run goreleaser
+        uses: goreleaser/goreleaser-action@v3
+        with:
+          args: release --rm-dist --snapshot
