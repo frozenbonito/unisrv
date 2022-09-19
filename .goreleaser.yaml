@@ -24,6 +24,10 @@ changelog:
       - "^docs:"
       - "^test:"
       - "^chore:"
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
 dockers:
   - image_templates:
       - frozenbonito/unisrv:latest-amd64
