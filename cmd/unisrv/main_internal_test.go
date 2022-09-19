@@ -209,7 +209,7 @@ func TestConfig(t *testing.T) {
 }
 
 func TestParseCommandLineArgs(t *testing.T) {
-	// Unset enviroment variables for test.
+	// Unset environment variables for test.
 	envKeys := []string{
 		"UNISRV_HOST",
 		"UNISRV_PORT",
