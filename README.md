@@ -71,3 +71,5 @@ func main() {
 	http.ListenAndServe(":8080", r)
 }
 ```
+
+See [go.dev](https://pkg.go.dev/github.com/frozenbonito/unisrv) for more details.
