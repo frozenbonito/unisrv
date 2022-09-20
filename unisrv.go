@@ -1,3 +1,4 @@
+// Package unisrv implements http helpers for serving Unity WebGL application.
 package unisrv
 
 import (
