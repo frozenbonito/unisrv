@@ -1,5 +1,10 @@
 # unisrv (Unity Server for WebGL)
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/frozenbonito/unisrv.svg)](https://pkg.go.dev/github.com/frozenbonito/unisrv)
+[![CI](https://github.com/frozenbonito/unisrv/actions/workflows/ci.yaml/badge.svg)](https://github.com/frozenbonito/unisrv/actions/workflows/ci.yaml)
+[![License](https://img.shields.io/github/license/frozenbonito/unisrv)](https://github.com/frozenbonito/unisrv/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/frozenbonito/unisrv)](https://github.com/frozenbonito/unisrv/releases/latest)
+
 `unisrv` is a preview server for Unity WebGL applications.
 
 **Notice:** This project is focused on local preview only. Not recommended for production use.
