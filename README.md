@@ -9,6 +9,8 @@
 
 **Notice:** This project is focused on local preview only. Not recommended for production use.
 
+## Usage
+
 ### CLI
 
 #### Installation
