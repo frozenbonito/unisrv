@@ -35,6 +35,7 @@ dockers:
       - frozenbonito/unisrv:v{{ .Major }}-amd64
       - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-amd64
     use: buildx
+    goos: linux
     goarch: amd64
     dockerfile: Dockerfile
     build_flag_templates:
@@ -45,6 +46,7 @@ dockers:
       - frozenbonito/unisrv:v{{ .Major }}-arm64
       - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-arm64
     use: buildx
+    goos: linux
     goarch: arm64
     dockerfile: Dockerfile
     build_flag_templates:
