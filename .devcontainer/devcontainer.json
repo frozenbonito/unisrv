@@ -23,10 +23,10 @@
   },
   "remoteUser": "vscode",
   "features": {
-    "docker-in-docker": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
       "version": "latest"
     },
-    "git": {
+    "ghcr.io/devcontainers/features/git:1": {
       "version": "latest"
     }
   }
