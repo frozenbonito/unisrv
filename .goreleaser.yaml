@@ -31,9 +31,9 @@ archives:
 dockers:
   - image_templates:
       - frozenbonito/unisrv:latest-amd64
-      - frozenbonito/unisrv:{{ .Tag }}-amd64
-      - frozenbonito/unisrv:v{{ .Major }}-amd64
-      - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-amd64
+      - frozenbonito/unisrv:{{ .Version }}-amd64
+      - frozenbonito/unisrv:{{ .Major }}-amd64
+      - frozenbonito/unisrv:{{ .Major }}.{{ .Minor }}-amd64
     use: buildx
     goos: linux
     goarch: amd64
@@ -42,9 +42,9 @@ dockers:
       - --platform=linux/amd64
   - image_templates:
       - frozenbonito/unisrv:latest-arm64
-      - frozenbonito/unisrv:{{ .Tag }}-arm64
-      - frozenbonito/unisrv:v{{ .Major }}-arm64
-      - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-arm64
+      - frozenbonito/unisrv:{{ .Version }}-arm64
+      - frozenbonito/unisrv:{{ .Major }}-arm64
+      - frozenbonito/unisrv:{{ .Major }}.{{ .Minor }}-arm64
     use: buildx
     goos: linux
     goarch: arm64
@@ -56,15 +56,15 @@ docker_manifests:
     image_templates:
       - frozenbonito/unisrv:latest-amd64
       - frozenbonito/unisrv:latest-arm64
-  - name_template: frozenbonito/unisrv:{{ .Tag }}
+  - name_template: frozenbonito/unisrv:{{ .Version }}
     image_templates:
-      - frozenbonito/unisrv:{{ .Tag }}-amd64
-      - frozenbonito/unisrv:{{ .Tag }}-arm64
-  - name_template: frozenbonito/unisrv:v{{ .Major }}
+      - frozenbonito/unisrv:{{ .Version }}-amd64
+      - frozenbonito/unisrv:{{ .Version }}-arm64
+  - name_template: frozenbonito/unisrv:{{ .Major }}
     image_templates:
-      - frozenbonito/unisrv:v{{ .Major }}-amd64
-      - frozenbonito/unisrv:v{{ .Major }}-arm64
-  - name_template: frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}
+      - frozenbonito/unisrv:{{ .Major }}-amd64
+      - frozenbonito/unisrv:{{ .Major }}-arm64
+  - name_template: frozenbonito/unisrv:{{ .Major }}.{{ .Minor }}
     image_templates:
-      - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-amd64
-      - frozenbonito/unisrv:v{{ .Major }}.{{ .Minor }}-arm64
+      - frozenbonito/unisrv:{{ .Major }}.{{ .Minor }}-amd64
+      - frozenbonito/unisrv:{{ .Major }}.{{ .Minor }}-arm64
