@@ -80,3 +80,7 @@ func main() {
 ```
 
 See [go.dev](https://pkg.go.dev/github.com/frozenbonito/unisrv) for more details.
+
+## Related project
+
+[Unity Preview Server](https://github.com/frozenbonito/UnityPreviewServer) - Unity editor extension powered by unisrv.
