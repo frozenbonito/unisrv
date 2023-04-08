@@ -9,8 +9,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Lint
+  lint-go:
+    name: Lint go code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,6 +27,21 @@ jobs:
         uses: goreleaser/goreleaser-action@v4
         with:
           args: check
+  lint-dockerfile:
+    name: Lint dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install hadolint
+        env:
+          HADOLINT_VERSION: "2.10.0"
+        run: |
+          curl -SL "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-$(uname -m)" \
+            -o /usr/local/bin/hadolint \
+            && chmod +x /usr/local/bin/hadolint
+      - name: Run hadolint
+        run: hadolint Dockerfile
   test:
     name: Test
     strategy:
