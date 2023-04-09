@@ -16,7 +16,7 @@ RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/i
   | sh -s -- -b "$(go env GOPATH)/bin" "v${GOLANGCI_LINT_VERSION}"
 
 # Install hadolint
-ARG HADOLINT_VERSION="2.10.0"
+ARG HADOLINT_VERSION="2.12.0"
 RUN curl -SL "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-$(uname -m)" \
   -o /usr/local/bin/hadolint \
   && chmod +x /usr/local/bin/hadolint
