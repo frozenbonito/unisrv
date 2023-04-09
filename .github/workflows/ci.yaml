@@ -42,6 +42,31 @@ jobs:
             && chmod +x /usr/local/bin/hadolint
       - name: Run hadolint
         run: hadolint Dockerfile
+  lint-commit:
+    name: Lint commit messages
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+      - name: Install commitlint
+        env:
+          COMMITLINT_CLI_VERSION: "17.5.1"
+          COMMITLINT_CONFIG_CONVENTIONAL_VERSION: "17.4.4"
+        run: |
+          npm install -g \
+            "@commitlint/cli@${COMMITLINT_CLI_VERSION}" \
+            "@commitlint/config-conventional@${COMMITLINT_CONFIG_CONVENTIONAL_VERSION}"
+      - name: Run commitlint
+        run: |
+          commitlint --verbose \
+            --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} \
+            --to ${{ github.event.pull_request.head.sha }}
   test:
     name: Test
     strategy:
