@@ -1,0 +1,77 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "enabledManagers": ["gomod", "github-actions", "regex"],
+  "gomod": {
+    "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.devcontainer/Dockerfile$"],
+      "matchStrings": ["ARG GOLANGCI_LINT_VERSION=\"(?<currentValue>.+)\"\\n"],
+      "depNameTemplate": "golangci-lint",
+      "packageNameTemplate": "golangci/golangci-lint",
+      "depTypeTemplate": "devcontainer",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "fileMatch": ["^\\.devcontainer/Dockerfile$"],
+      "matchStrings": ["ARG HADOLINT_VERSION=\"(?<currentValue>.+)\"\\n"],
+      "depNameTemplate": "hadolint",
+      "packageNameTemplate": "hadolint/hadolint",
+      "depTypeTemplate": "devcontainer",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "fileMatch": ["^\\.devcontainer/Dockerfile$"],
+      "matchStrings": ["ARG COMMITLINT_CLI_VERSION=\"(?<currentValue>.+)\"\\n"],
+      "depNameTemplate": "@commitlint/cli",
+      "depTypeTemplate": "devcontainer",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^\\.devcontainer/Dockerfile$"],
+      "matchStrings": [
+        "ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION=\"(?<currentValue>.+)\"\\n"
+      ],
+      "depNameTemplate": "@commitlint/config-conventional",
+      "depTypeTemplate": "devcontainer",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/.+\\.yaml$"],
+      "matchStrings": [
+        "\\s+uses: golangci/golangci-lint-action@.+\\n.*\\s+with:\\n.*\\s+version: (?<currentValue>.+)\\n"
+      ],
+      "depNameTemplate": "golangci-lint",
+      "packageNameTemplate": "golangci/golangci-lint",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/.+\\.yaml$"],
+      "matchStrings": ["\\s+HADOLINT_VERSION: \"(?<currentValue>.+)\"\\n"],
+      "depNameTemplate": "hadolint",
+      "packageNameTemplate": "hadolint/hadolint",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/.+\\.yaml$"],
+      "matchStrings": [
+        "\\s+COMMITLINT_CLI_VERSION: \"(?<currentValue>.+)\"\\n"
+      ],
+      "depNameTemplate": "@commitlint/cli",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/.+\\.yaml$"],
+      "matchStrings": [
+        "\\s+COMMITLINT_CONFIG_CONVENTIONAL_VERSION: \"(?<currentValue>.+)\"\\n"
+      ],
+      "depNameTemplate": "@commitlint/config-conventional",
+      "datasourceTemplate": "npm"
+    }
+  ]
+}
