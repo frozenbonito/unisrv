@@ -22,8 +22,8 @@ RUN curl -SL "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT
   && chmod +x /usr/local/bin/hadolint
 
 # Install commitlint
-ARG COMMITLINT_CLI_VERSION="17.5.1"
-ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION="17.4.4"
+ARG COMMITLINT_CLI_VERSION="17.6.0"
+ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION="17.6.0"
 RUN npm install -g "@commitlint/cli@${COMMITLINT_CLI_VERSION}" "@commitlint/config-conventional@${COMMITLINT_CONFIG_CONVENTIONAL_VERSION}"
 
 # Install go tools
