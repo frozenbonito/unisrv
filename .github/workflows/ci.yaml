@@ -22,7 +22,7 @@ jobs:
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.52.2
+          version: v1.53.1
       - name: Run goreleaser check
         uses: goreleaser/goreleaser-action@v4
         with:
