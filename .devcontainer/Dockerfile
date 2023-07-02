@@ -25,10 +25,3 @@ RUN curl -SL "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT
 ARG COMMITLINT_CLI_VERSION="17.6.6"
 ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION="17.6.6"
 RUN npm install -g "@commitlint/cli@${COMMITLINT_CLI_VERSION}" "@commitlint/config-conventional@${COMMITLINT_CONFIG_CONVENTIONAL_VERSION}"
-
-# Install go tools
-RUN go install github.com/goreleaser/goreleaser@latest \
-  && go install gotest.tools/gotestsum@latest
-
-# Install act
-RUN curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash
