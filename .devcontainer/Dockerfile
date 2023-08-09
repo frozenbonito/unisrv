@@ -11,7 +11,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
   && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Install golangci-lint
-ARG GOLANGCI_LINT_VERSION="1.53.3"
+ARG GOLANGCI_LINT_VERSION="1.54.0"
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
   | sh -s -- -b "$(go env GOPATH)/bin" "v${GOLANGCI_LINT_VERSION}"
 
