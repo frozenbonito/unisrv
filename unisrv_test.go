@@ -193,7 +193,7 @@ func TestUnityMiddleware(t *testing.T) {
 		},
 	}
 
-	h := unisrv.UnityMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	h := unisrv.UnityMiddleware(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		fmt.Fprintf(w, "ok")
 	}))
 
