@@ -24,8 +24,10 @@ jobs:
         with:
           version: v1.59.1
       - name: Run goreleaser check
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
+          distribution: goreleaser
+          version: "~> v2"
           args: check
   lint-dockerfile:
     name: Lint dockerfile
@@ -105,6 +107,8 @@ jobs:
         with:
           go-version: "1.21"
       - name: Run goreleaser
-        uses: goreleaser/goreleaser-action@v5
+        uses: goreleaser/goreleaser-action@v6
         with:
+          distribution: goreleaser
+          version: "~> v2"
           args: release --clean --snapshot
