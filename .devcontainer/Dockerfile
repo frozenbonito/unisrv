@@ -1,5 +1,5 @@
-ARG VARIANT="1.18-bullseye"
-FROM mcr.microsoft.com/devcontainers/go:0-${VARIANT}
+ARG VARIANT="1.21-bullseye"
+FROM mcr.microsoft.com/devcontainers/go:1-${VARIANT}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
