@@ -25,6 +25,7 @@ changelog:
       - "^docs(\\(.*\\))?!?:"
       - "^test(\\(.*\\))?!?:"
       - "^chore(\\(.*\\))?!?:"
+      - "^Merge pull request"
 archives:
   - format_overrides:
       - goos: windows
