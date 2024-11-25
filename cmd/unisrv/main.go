@@ -86,7 +86,7 @@ func (s *config) serverOptions() *unisrv.Options {
 func main() {
 	cfg, printVersion, err := parseCommandLineArgs(os.Args[1:])
 	if err != nil {
-		os.Exit(2) //nolint:gomnd
+		os.Exit(2) //nolint:mnd
 	}
 
 	if printVersion {
