@@ -58,7 +58,7 @@ jobs:
           node-version: lts/*
       - name: Install commitlint
         env:
-          COMMITLINT_CLI_VERSION: "19.6.0"
+          COMMITLINT_CLI_VERSION: "19.6.1"
           COMMITLINT_CONFIG_CONVENTIONAL_VERSION: "19.6.0"
         run: |
           npm install -g \
