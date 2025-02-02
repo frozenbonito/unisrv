@@ -22,6 +22,6 @@ RUN curl -SL "https://github.com/hadolint/hadolint/releases/download/v${HADOLINT
   && chmod +x /usr/local/bin/hadolint
 
 # Install commitlint
-ARG COMMITLINT_CLI_VERSION="19.6.1"
-ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION="19.6.0"
+ARG COMMITLINT_CLI_VERSION="19.7.1"
+ARG COMMITLINT_CONFIG_CONVENTIONAL_VERSION="19.7.1"
 RUN npm install -g "@commitlint/cli@${COMMITLINT_CLI_VERSION}" "@commitlint/config-conventional@${COMMITLINT_CONFIG_CONVENTIONAL_VERSION}"
