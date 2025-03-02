@@ -29,7 +29,7 @@ changelog:
 archives:
   - format_overrides:
       - goos: windows
-        format: zip
+        formats: zip
 dockers:
   - image_templates:
       - frozenbonito/unisrv:latest-amd64
